@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="text-white py-20 md:py-32 relative">
+    <section className="text-white py-20 md:py-32 relative pb-24 md:pb-40">
       <div 
         className="absolute inset-0 bg-black/40 z-0" 
         style={{ 

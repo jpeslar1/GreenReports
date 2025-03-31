@@ -35,7 +35,7 @@ export default function InfoBoxes() {
   ];
 
   return (
-    <section className="bg-white py-0 -mt-16">
+    <section className="bg-white py-0 -mt-8 mb-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {infoBoxes.map((box, index) => (
