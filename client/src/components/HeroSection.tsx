@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import marinaGardensImage from "@assets/sg-marina-gardens.jpg";
 
 export default function HeroSection() {
   return (
@@ -6,7 +7,7 @@ export default function HeroSection() {
       <div 
         className="absolute inset-0 z-0" 
         style={{
-          backgroundImage: `url('/images/sg-marina-gardens.jpg')`,
+          backgroundImage: `url(${marinaGardensImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'brightness(0.7)'

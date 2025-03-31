@@ -5,7 +5,6 @@ import WelcomeSection from "@/components/WelcomeSection";
 import BusinessesSection from "@/components/BusinessesSection";
 import SingaporeImageSection from "@/components/SingaporeImageSection";
 import ServicesSection from "@/components/ServicesSection";
-import GardensByTheBaySection from "@/components/GardensByTheBaySection";
 import StatsSection from "@/components/StatsSection";
 import ContactTestimonials from "@/components/ContactTestimonials";
 import ClientLogos from "@/components/ClientLogos";
@@ -22,7 +21,6 @@ export default function Home() {
       <BusinessesSection />
       <SingaporeImageSection />
       <ServicesSection />
-      <GardensByTheBaySection />
       <StatsSection />
       <ContactTestimonials />
       <ClientLogos />
