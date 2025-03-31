@@ -2,15 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <section className="text-white py-20 md:py-28 relative">
-      <div 
-        className="absolute inset-0 bg-gray-500 z-0" 
-        style={{
-          backgroundImage: `url('@assets/Screenshot 2025-04-01 at 4.41.03 AM.png')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center'
-        }}
-      />
+    <section className="text-white py-20 md:py-28 relative bg-[#6A7079]">
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">

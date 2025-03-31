@@ -4,7 +4,7 @@ export default function SingaporeImageSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <img 
-            src="https://www.traveltalktours.com/wp-content/smush-webp/2023/12/swapnil-bapat-sJ7pYyJFyuA-unsplash-1-scaled.jpg.webp" 
+            src="@assets/sgskylinepic.png" 
             alt="Singapore skyline at sunset" 
             className="rounded-lg shadow-xl w-full"
           />
