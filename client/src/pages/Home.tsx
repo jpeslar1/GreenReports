@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import WelcomeSection from "@/components/WelcomeSection";
 import BusinessesSection from "@/components/BusinessesSection";
+import SingaporeImageSection from "@/components/SingaporeImageSection";
 import ServicesSection from "@/components/ServicesSection";
 import StatsSection from "@/components/StatsSection";
 import ContactTestimonials from "@/components/ContactTestimonials";
@@ -18,6 +19,7 @@ export default function Home() {
       <HeroSection />
       <WelcomeSection />
       <BusinessesSection />
+      <SingaporeImageSection />
       <ServicesSection />
       <StatsSection />
       <ContactTestimonials />

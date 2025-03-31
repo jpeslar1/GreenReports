@@ -4,12 +4,11 @@ export default function HeroSection() {
   return (
     <section className="text-white py-20 md:py-28 relative">
       <div 
-        className="absolute inset-0 bg-black/40 z-0" 
-        style={{ 
-          backgroundImage: `url('@assets/Grok Image (4).jpg')`,
+        className="absolute inset-0 bg-gray-500 z-0" 
+        style={{
+          backgroundImage: `url('@assets/Screenshot 2025-04-01 at 4.41.03 AM.png')`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: 'darken'
+          backgroundPosition: 'center'
         }}
       />
       <div className="container mx-auto px-4 relative z-10">
