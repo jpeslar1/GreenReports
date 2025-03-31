@@ -20,7 +20,7 @@ export default function WelcomeSection() {
           </div>
           <div>
             <img 
-              src="@assets/sgskylinepic.png" 
+              src="https://www.traveltalktours.com/wp-content/smush-webp/2023/12/swapnil-bapat-sJ7pYyJFyuA-unsplash-1-scaled.jpg.webp" 
               alt="Singapore skyline at sunset" 
               className="rounded-lg shadow-xl w-full"
             />
