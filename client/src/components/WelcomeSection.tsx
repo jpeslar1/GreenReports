@@ -20,8 +20,8 @@ export default function WelcomeSection() {
           </div>
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-              alt="Digital sustainability reporting on tablet" 
+              src="@assets/sgskylinepic.png" 
+              alt="Singapore skyline at sunset" 
               className="rounded-lg shadow-xl w-full"
             />
           </div>
