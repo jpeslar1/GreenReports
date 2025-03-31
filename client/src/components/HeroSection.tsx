@@ -6,7 +6,7 @@ export default function HeroSection() {
       <div 
         className="absolute inset-0 z-0" 
         style={{
-          backgroundImage: `url('https://i.imgur.com/AaHHTMO.jpg')`,
+          backgroundImage: `url('/images/sg-marina-gardens.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'brightness(0.7)'
