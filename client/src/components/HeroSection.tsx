@@ -6,7 +6,7 @@ export default function HeroSection() {
       <div 
         className="absolute inset-0 bg-black/40 z-0" 
         style={{ 
-          backgroundImage: `url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80')`,
+          backgroundImage: `url('@assets/Grok Image (4).jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: 'darken'

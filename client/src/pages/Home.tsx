@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
-import InfoBoxes from "@/components/InfoBoxes";
 import WelcomeSection from "@/components/WelcomeSection";
+import BusinessesSection from "@/components/BusinessesSection";
 import ServicesSection from "@/components/ServicesSection";
 import StatsSection from "@/components/StatsSection";
 import ContactTestimonials from "@/components/ContactTestimonials";
@@ -16,8 +16,8 @@ export default function Home() {
       <Header />
       <Navigation />
       <HeroSection />
-      <InfoBoxes />
       <WelcomeSection />
+      <BusinessesSection />
       <ServicesSection />
       <StatsSection />
       <ContactTestimonials />
