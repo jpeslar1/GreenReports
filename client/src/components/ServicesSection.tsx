@@ -2,7 +2,11 @@ import {
   FaUsers, 
   FaExchangeAlt, 
   FaCalculator, 
-  FaLeaf
+  FaLeaf,
+  FaHandshake,
+  FaChartLine,
+  FaDatabase,
+  FaRecycle
 } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
@@ -26,30 +30,33 @@ function ServiceItem({ icon, title, description, iconBgClass }: ServiceProps) {
 }
 
 export default function ServicesSection() {
+  // Using the primary color from theme.json: hsl(153, 83%, 29%)
+  const primaryGreen = "bg-[#0a9155]";
+  
   const services = [
     {
-      icon: <FaUsers />,
+      icon: <FaHandshake />,
       title: "Stakeholder Engagement",
       description: "Good stakeholder engagement demonstrates a commitment to building meaningful relationships with diverse stakeholders, fostering open communication, and creating shared value. Our services help you fostering meaningful connections that contribute to the long-term success and sustainability of both the organization and its stakeholders.",
-      iconBgClass: "bg-[#5daba0]"
+      iconBgClass: primaryGreen
     },
     {
-      icon: <FaExchangeAlt />,
+      icon: <FaChartLine />,
       title: "ESG Advisory",
       description: "The best ESG advisory service integrates sustainability into the core of business operations, guides clients toward responsible practices, and contributes to long-term value creation for both the organization and its stakeholders.",
-      iconBgClass: "bg-[#496ca5]"
+      iconBgClass: primaryGreen
     },
     {
-      icon: <FaCalculator />,
+      icon: <FaDatabase />,
       title: "ESG Data and Modeling Building",
       description: "ESG data collection and calculation model services involve systematically gathering and analyzing information related to a company's ESG key performance indicators and financial impact from climate risk. These services are crucial for organizations aiming to measure, report, and improve their sustainability practices. One example is complete GHG Scope 1-3 model building service.",
-      iconBgClass: "bg-[#a6c555]"
+      iconBgClass: primaryGreen
     },
     {
-      icon: <FaLeaf />,
+      icon: <FaRecycle />,
       title: "Sustainable Supply Chain and Green Procurement",
       description: "Establishing a responsible supply chain and implementing green procurement are services focused on promoting ethical and environmentally sustainable practices within an organization's sourcing and supply chain operations.",
-      iconBgClass: "bg-[#5daba0]"
+      iconBgClass: primaryGreen
     }
   ];
 
