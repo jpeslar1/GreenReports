@@ -4,7 +4,7 @@ export default function SingaporeImageSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <img 
-            src="@assets/sgskylinepic.png" 
+            src="/images/sg-skyline.png" 
             alt="Singapore skyline at sunset" 
             className="rounded-lg shadow-xl w-full"
           />
