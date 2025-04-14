@@ -1,10 +1,6 @@
 import { Link } from "wouter";
 import { 
   FaLeaf, 
-  FaFacebookF, 
-  FaTwitter, 
-  FaLinkedinIn, 
-  FaInstagram, 
   FaMapMarkerAlt, 
   FaPhoneAlt, 
   FaEnvelope 
@@ -27,20 +23,6 @@ export default function Footer() {
             <p className="text-gray-400 mb-4">
               Helping companies build a more sustainable future through digital reporting solutions.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Facebook">
-                <FaFacebookF />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Twitter">
-                <FaTwitter />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="LinkedIn">
-                <FaLinkedinIn />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200" aria-label="Instagram">
-                <FaInstagram />
-              </a>
-            </div>
           </div>
           
           <div>

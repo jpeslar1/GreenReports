@@ -5,8 +5,7 @@ import WelcomeSection from "@/components/WelcomeSection";
 import BusinessesSection from "@/components/BusinessesSection";
 import SingaporeImageSection from "@/components/SingaporeImageSection";
 import ServicesSection from "@/components/ServicesSection";
-import StatsSection from "@/components/StatsSection";
-import ContactTestimonials from "@/components/ContactTestimonials";
+import ContactForm from "@/components/ContactForm";
 import ClientLogos from "@/components/ClientLogos";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
@@ -21,8 +20,7 @@ export default function Home() {
       <BusinessesSection />
       <SingaporeImageSection />
       <ServicesSection />
-      <StatsSection />
-      <ContactTestimonials />
+      <ContactForm />
       <ClientLogos />
       <Newsletter />
       <Footer />
