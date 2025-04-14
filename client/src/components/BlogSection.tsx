@@ -52,9 +52,9 @@ function BlogPostCard({ post }: { post: BlogPost }) {
         {/* Author section removed as requested */}
       </CardContent>
       <CardFooter className="flex-none pt-0">
-        <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
+        <a href="#services" className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
           Read more <FaArrowRight className="ml-2 text-sm" />
-        </Link>
+        </a>
       </CardFooter>
     </Card>
   );
@@ -139,11 +139,11 @@ export default function BlogSection() {
         </div>
         
         <div className="text-center">
-          <Link href="/blog">
+          <a href="#services">
             <Button className="bg-primary hover:bg-primary/80 text-white px-6 py-2 rounded-md">
               View All Posts
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </section>

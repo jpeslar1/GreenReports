@@ -78,9 +78,11 @@ export default function ServicesSection() {
         </div>
         
         <div className="mt-16 text-center">
-          <Button className="bg-[#99CC33] hover:bg-[#88bb22] text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 h-auto">
-            GET STARTED TODAY
-          </Button>
+          <a href="#contact">
+            <Button className="bg-[#99CC33] hover:bg-[#88bb22] text-white px-8 py-3 rounded-full font-medium transition-colors duration-200 h-auto">
+              GET STARTED TODAY
+            </Button>
+          </a>
         </div>
       </div>
     </section>
