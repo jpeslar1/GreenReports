@@ -126,10 +126,6 @@ export default function BlogPost() {
                     <span>{format(new Date(post.publishedAt), 'MMMM d, yyyy')}</span>
                   </div>
                   <div className="flex items-center">
-                    <FaUser className="mr-2 text-primary" />
-                    <span>{post.author}</span>
-                  </div>
-                  <div className="flex items-center">
                     <FaTag className="mr-2 text-primary" />
                     <span className="uppercase">{post.category}</span>
                   </div>

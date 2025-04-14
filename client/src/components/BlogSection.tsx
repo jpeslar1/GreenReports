@@ -49,9 +49,7 @@ function BlogPostCard({ post }: { post: BlogPost }) {
         </CardDescription>
       </CardHeader>
       <CardContent className="flex-grow">
-        <div className="text-sm text-gray-600">
-          By <span className="font-semibold">{post.author}</span>
-        </div>
+        {/* Author section removed as requested */}
       </CardContent>
       <CardFooter className="flex-none pt-0">
         <Link href={`/blog/${post.slug}`} className="inline-flex items-center text-primary hover:text-primary/80 font-medium">
