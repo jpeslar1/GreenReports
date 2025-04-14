@@ -5,9 +5,7 @@ import WelcomeSection from "@/components/WelcomeSection";
 import BusinessesSection from "@/components/BusinessesSection";
 import SingaporeImageSection from "@/components/SingaporeImageSection";
 import ServicesSection from "@/components/ServicesSection";
-import ContactForm from "@/components/ContactForm";
-import ClientLogos from "@/components/ClientLogos";
-import Newsletter from "@/components/Newsletter";
+import ContactForm from "@/pages/ContactForm";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,8 +19,6 @@ export default function Home() {
       <SingaporeImageSection />
       <ServicesSection />
       <ContactForm />
-      <ClientLogos />
-      <Newsletter />
       <Footer />
     </div>
   );

@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white pt-12 pb-6">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           <div>
             <Link href="/" className="flex items-center mb-4">
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white mr-2">
@@ -26,24 +26,12 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li><Link href="/" className="text-gray-400 hover:text-white transition-colors duration-200">Home</Link></li>
-              <li><Link href="/#about" className="text-gray-400 hover:text-white transition-colors duration-200">About Us</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">Services</Link></li>
-              <li><Link href="/#testimonials" className="text-gray-400 hover:text-white transition-colors duration-200">Client Stories</Link></li>
-              <li><Link href="/#contact" className="text-gray-400 hover:text-white transition-colors duration-200">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
             <h4 className="text-lg font-bold mb-4">Services</h4>
             <ul className="space-y-2">
-              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">Carbon Strategy</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">Carbon Credits</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">Sustainable Web Design</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">Digital Reporting</Link></li>
-              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">Content Strategy</Link></li>
+              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">Stakeholder Engagement</Link></li>
+              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">ESG Advisory</Link></li>
+              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">ESG Data and Modeling Building</Link></li>
+              <li><Link href="/#services" className="text-gray-400 hover:text-white transition-colors duration-200">Sustainable Supply Chain and Green Procurement</Link></li>
             </ul>
           </div>
           
