@@ -67,89 +67,105 @@ export default function BlogPost() {
 
   if (!slug) {
     return (
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center py-12">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">Blog Post Not Found</h1>
-            <p className="text-gray-600 mb-6">The blog post you're looking for doesn't exist.</p>
-            <Link href="/blog">
-              <Button className="bg-primary hover:bg-primary/80 text-white">
-                <FaArrowLeft className="mr-2" /> Back to Blog
-              </Button>
-            </Link>
+      <div className="flex flex-col min-h-screen">
+        <Header />
+        <Navigation />
+        <main className="flex-grow">
+          <div className="container mx-auto px-4 py-16">
+            <div className="max-w-3xl mx-auto">
+              <div className="text-center py-12">
+                <h1 className="text-2xl font-bold text-gray-800 mb-4">Blog Post Not Found</h1>
+                <p className="text-gray-600 mb-6">The blog post you're looking for doesn't exist.</p>
+                <Link href="/blog">
+                  <Button className="bg-primary hover:bg-primary/80 text-white">
+                    <FaArrowLeft className="mr-2" /> Back to Blog
+                  </Button>
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
+        </main>
+        <Footer />
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto px-4 py-16">
-      <div className="max-w-3xl mx-auto">
-        <Link href="/blog">
-          <Button variant="ghost" className="mb-6 text-gray-600 hover:text-primary">
-            <FaArrowLeft className="mr-2" /> Back to Blog
-          </Button>
-        </Link>
-
-        {isLoading ? (
-          <BlogPostSkeleton />
-        ) : error ? (
-          <div className="text-center py-12">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">Error Loading Blog Post</h1>
-            <p className="text-gray-600 mb-6">We couldn't load the blog post you requested.</p>
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <Navigation />
+      
+      <main className="flex-grow">
+        <div className="container mx-auto px-4 py-16">
+          <div className="max-w-3xl mx-auto">
             <Link href="/blog">
-              <Button className="bg-primary hover:bg-primary/80 text-white">
+              <Button variant="ghost" className="mb-6 text-gray-600 hover:text-primary">
                 <FaArrowLeft className="mr-2" /> Back to Blog
               </Button>
             </Link>
-          </div>
-        ) : post ? (
-          <article>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>
-            
-            <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-8">
-              <div className="flex items-center">
-                <FaCalendarAlt className="mr-2 text-primary" />
-                <span>{format(new Date(post.publishedAt), 'MMMM d, yyyy')}</span>
+
+            {isLoading ? (
+              <BlogPostSkeleton />
+            ) : error ? (
+              <div className="text-center py-12">
+                <h1 className="text-2xl font-bold text-gray-800 mb-4">Error Loading Blog Post</h1>
+                <p className="text-gray-600 mb-6">We couldn't load the blog post you requested.</p>
+                <Link href="/blog">
+                  <Button className="bg-primary hover:bg-primary/80 text-white">
+                    <FaArrowLeft className="mr-2" /> Back to Blog
+                  </Button>
+                </Link>
               </div>
-              <div className="flex items-center">
-                <FaUser className="mr-2 text-primary" />
-                <span>{post.author}</span>
-              </div>
-              <div className="flex items-center">
-                <FaTag className="mr-2 text-primary" />
-                <span className="uppercase">{post.category}</span>
-              </div>
-            </div>
-            
-            {post.imageUrl && (
-              <div className="mb-8">
-                <img 
-                  src={post.imageUrl} 
-                  alt={post.title} 
-                  className="w-full h-auto rounded-lg shadow-md"
-                />
+            ) : post ? (
+              <article>
+                <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>
+                
+                <div className="flex flex-wrap gap-4 text-sm text-gray-600 mb-8">
+                  <div className="flex items-center">
+                    <FaCalendarAlt className="mr-2 text-primary" />
+                    <span>{format(new Date(post.publishedAt), 'MMMM d, yyyy')}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaUser className="mr-2 text-primary" />
+                    <span>{post.author}</span>
+                  </div>
+                  <div className="flex items-center">
+                    <FaTag className="mr-2 text-primary" />
+                    <span className="uppercase">{post.category}</span>
+                  </div>
+                </div>
+                
+                {post.imageUrl && (
+                  <div className="mb-8">
+                    <img 
+                      src={post.imageUrl} 
+                      alt={post.title} 
+                      className="w-full h-auto rounded-lg shadow-md"
+                    />
+                  </div>
+                )}
+                
+                <div className="prose prose-primary max-w-none">
+                  <p className="text-lg font-medium text-gray-700 mb-6">{post.summary}</p>
+                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                </div>
+              </article>
+            ) : (
+              <div className="text-center py-12">
+                <h1 className="text-2xl font-bold text-gray-800 mb-4">Blog Post Not Found</h1>
+                <p className="text-gray-600 mb-6">The blog post you're looking for doesn't exist.</p>
+                <Link href="/blog">
+                  <Button className="bg-primary hover:bg-primary/80 text-white">
+                    <FaArrowLeft className="mr-2" /> Back to Blog
+                  </Button>
+                </Link>
               </div>
             )}
-            
-            <div className="prose prose-primary max-w-none">
-              <p className="text-lg font-medium text-gray-700 mb-6">{post.summary}</p>
-              <div dangerouslySetInnerHTML={{ __html: post.content }} />
-            </div>
-          </article>
-        ) : (
-          <div className="text-center py-12">
-            <h1 className="text-2xl font-bold text-gray-800 mb-4">Blog Post Not Found</h1>
-            <p className="text-gray-600 mb-6">The blog post you're looking for doesn't exist.</p>
-            <Link href="/blog">
-              <Button className="bg-primary hover:bg-primary/80 text-white">
-                <FaArrowLeft className="mr-2" /> Back to Blog
-              </Button>
-            </Link>
           </div>
-        )}
-      </div>
+        </div>
+      </main>
+      
+      <Footer />
     </div>
   );
 }
