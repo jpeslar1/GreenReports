@@ -1,4 +1,4 @@
-import { FaPhoneAlt, FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 
 export default function Header() {
   return (
@@ -13,20 +13,9 @@ export default function Header() {
             <span>100+ clients have been served today</span>
           </div>
           
-          {/* Social Icons */}
-          <div className="flex items-center space-x-2">
-            <a href="#" className="text-primary hover:text-primary/80" aria-label="Facebook">
-              <FaFacebookF />
-            </a>
-            <a href="#" className="text-primary hover:text-primary/80" aria-label="Twitter">
-              <FaTwitter />
-            </a>
-            <a href="#" className="text-primary hover:text-primary/80" aria-label="LinkedIn">
-              <FaLinkedinIn />
-            </a>
-            <a href="#" className="text-primary hover:text-primary/80" aria-label="Instagram">
-              <FaInstagram />
-            </a>
+          {/* Right side spacing (kept for layout balance) */}
+          <div className="flex items-center">
+            {/* Intentionally left empty for layout balance */}
           </div>
         </div>
       </div>
