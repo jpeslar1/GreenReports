@@ -3,6 +3,45 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { FaLeaf, FaBars, FaTimes } from "react-icons/fa";
 
+// Custom NavLink component that handles both internal anchor links and page navigation
+function NavLink({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
+  const [, setLocation] = useLocation();
+  
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const isAnchorLink = href.startsWith('/#');
+    
+    if (isAnchorLink) {
+      e.preventDefault();
+      
+      // Handle anchor link
+      const targetId = href.split('#')[1];
+      const targetElement = document.getElementById(targetId);
+      
+      // First navigate to home page if needed
+      if (window.location.pathname !== '/') {
+        setLocation('/');
+        // Give time for the home page to load before scrolling
+        setTimeout(() => {
+          const element = document.getElementById(targetId);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else if (targetElement) {
+        // Already on home page, just scroll
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    // For non-anchor links, let the Link component handle it normally
+  };
+  
+  return (
+    <Link href={href} onClick={handleClick} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -26,16 +65,16 @@ export default function Navigation() {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">HOME</Link>
-            <Link href="/#about" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">ABOUT US</Link>
-            <Link href="/#services" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">SERVICES</Link>
-            <Link href="/blog" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">BLOG</Link>
-            <Link href="/#contact" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">CONTACT</Link>
-            <Link href="/#contact">
+            <NavLink href="/" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">HOME</NavLink>
+            <NavLink href="/#about" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">ABOUT US</NavLink>
+            <NavLink href="/#services" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">SERVICES</NavLink>
+            <NavLink href="/blog" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">BLOG</NavLink>
+            <NavLink href="/#contact" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">CONTACT</NavLink>
+            <NavLink href="/#contact">
               <Button className="bg-[#99CC33] hover:bg-[#88bb22] text-white px-6 py-2 rounded-full font-medium transition-colors duration-200">
                 GET STARTED
               </Button>
-            </Link>
+            </NavLink>
           </div>
           
           {/* Mobile menu button */}
@@ -58,16 +97,16 @@ export default function Navigation() {
         {isMenuOpen && (
           <div className="md:hidden py-4 bg-white">
             <div className="flex flex-col space-y-4">
-              <Link href="/" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">HOME</Link>
-              <Link href="/#about" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">ABOUT US</Link>
-              <Link href="/#services" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">SERVICES</Link>
-              <Link href="/blog" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">BLOG</Link>
-              <Link href="/#contact" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">CONTACT</Link>
-              <Link href="/#contact">
+              <NavLink href="/" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">HOME</NavLink>
+              <NavLink href="/#about" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">ABOUT US</NavLink>
+              <NavLink href="/#services" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">SERVICES</NavLink>
+              <NavLink href="/blog" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">BLOG</NavLink>
+              <NavLink href="/#contact" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">CONTACT</NavLink>
+              <NavLink href="/#contact">
                 <Button className="bg-[#99CC33] hover:bg-[#88bb22] text-white px-6 py-2 rounded-full font-medium transition-colors duration-200 w-full">
                   GET STARTED
                 </Button>
-              </Link>
+              </NavLink>
             </div>
           </div>
         )}
