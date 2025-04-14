@@ -5,6 +5,7 @@ import WelcomeSection from "@/components/WelcomeSection";
 import BusinessesSection from "@/components/BusinessesSection";
 import SingaporeImageSection from "@/components/SingaporeImageSection";
 import ServicesSection from "@/components/ServicesSection";
+import BlogSection from "@/components/BlogSection";
 import ContactForm from "@/pages/ContactForm";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <BusinessesSection />
       <SingaporeImageSection />
       <ServicesSection />
+      <BlogSection />
       <ContactForm />
       <Footer />
     </div>

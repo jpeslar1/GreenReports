@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
 import { useRoute, Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { FaCalendarAlt, FaUser, FaTag, FaArrowLeft } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
+import Header from "@/components/Header";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 interface BlogPost {
   id: number;
