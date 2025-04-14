@@ -4,8 +4,12 @@ import { storage } from "./storage";
 import { insertContactSchema, insertNewsletterSchema, insertBlogPostSchema } from "@shared/schema";
 import { ZodError } from "zod";
 import { fromZodError } from "zod-validation-error";
+import path from "path";
+import express from "express";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve blog images from the public directory
+  app.use('/blog-images', express.static(path.join(process.cwd(), 'public/blog-images')));
   // Contact form submission
   app.post("/api/contact", async (req: Request, res: Response) => {
     try {
