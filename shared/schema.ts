@@ -24,6 +24,19 @@ export const newsletterSubscriptions = pgTable("newsletter_subscriptions", {
   subscribedAt: timestamp("subscribed_at").defaultNow().notNull()
 });
 
+export const blogPosts = pgTable("blog_posts", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  slug: text("slug").notNull().unique(),
+  summary: text("summary").notNull(),
+  content: text("content").notNull(),
+  author: text("author").notNull(),
+  imageUrl: text("image_url").notNull().default(''),
+  category: text("category").notNull(),
+  publishedAt: timestamp("published_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull()
+});
+
 export const insertUserSchema = createInsertSchema(users).pick({
   username: true,
   password: true,
@@ -41,6 +54,16 @@ export const insertNewsletterSchema = createInsertSchema(newsletterSubscriptions
   email: true
 });
 
+export const insertBlogPostSchema = createInsertSchema(blogPosts).pick({
+  title: true,
+  slug: true,
+  summary: true,
+  content: true,
+  author: true,
+  imageUrl: true,
+  category: true,
+});
+
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
@@ -49,3 +72,6 @@ export type ContactSubmission = typeof contactSubmissions.$inferSelect;
 
 export type InsertNewsletter = z.infer<typeof insertNewsletterSchema>;
 export type NewsletterSubscription = typeof newsletterSubscriptions.$inferSelect;
+
+export type InsertBlogPost = z.infer<typeof insertBlogPostSchema>;
+export type BlogPost = typeof blogPosts.$inferSelect;
