@@ -29,7 +29,7 @@ export default function Navigation() {
             <Link href="/" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">HOME</Link>
             <Link href="/#about" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">ABOUT US</Link>
             <Link href="/#services" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">SERVICES</Link>
-            <Link href="/#testimonials" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">CLIENT STORIES</Link>
+            <Link href="/blog" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">BLOG</Link>
             <Link href="/#contact" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200">CONTACT</Link>
             <Button className="bg-[#99CC33] hover:bg-[#88bb22] text-white px-6 py-2 rounded-full font-medium transition-colors duration-200">
               GET STARTED
@@ -59,7 +59,7 @@ export default function Navigation() {
               <Link href="/" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">HOME</Link>
               <Link href="/#about" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">ABOUT US</Link>
               <Link href="/#services" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">SERVICES</Link>
-              <Link href="/#testimonials" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">CLIENT STORIES</Link>
+              <Link href="/blog" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">BLOG</Link>
               <Link href="/#contact" className="text-gray-700 hover:text-primary font-medium transition-colors duration-200 py-2">CONTACT</Link>
               <Button className="bg-[#99CC33] hover:bg-[#88bb22] text-white px-6 py-2 rounded-full font-medium transition-colors duration-200 w-full">
                 GET STARTED
