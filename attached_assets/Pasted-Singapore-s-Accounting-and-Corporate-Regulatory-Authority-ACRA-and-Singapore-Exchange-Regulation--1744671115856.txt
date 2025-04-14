@@ -1,0 +1,14 @@
+Singapore’s Accounting and Corporate Regulatory Authority (ACRA) and Singapore Exchange Regulation (SGX RegCo) accepted the Sustainability Reporting Advisory Committee’s (SRAC) climate disclosure recommendations after public consultation, with minor refinements. Singapore’s Second Minister for Finance announced mandatory climate-related disclosures, phased in per the recommendations.
+
+For large U.S.-based multinationals in Singapore, key requirements for large non-listed companies (annual revenue ≥ S$1 billion [~US$750 million] and assets ≥ S$500 million [~US$375 million], based on two prior fiscal years) include:
+
+Mandatory climate reporting starts in fiscal 2027. ACRA will review in 2027 whether to lower thresholds, considering global trends and implementation experience.
+
+Exemptions apply if a parent company (local or foreign) prepares climate or sustainability reports meeting Singapore’s requirements or equivalent standards (e.g., European Sustainability Reporting Standards). The subsidiary’s activities must be included, and the report publicly available. For reports using standards like Global Reporting Initiative or Task Force on Climate-Related Financial Disclosures, a three-year exemption (2027–2029) applies, with ACRA reviewing potential extensions.
+
+From fiscal 2027, large non-listed companies must report International Sustainability Standards Board-aligned disclosures, including Scope 1 and 2 emissions. Scope 3 emissions reporting is deferred until at least 2029, with two years’ notice. From 2029, external limited assurance on Scope 1 and 2 emissions is required from an ACRA-registered audit firm or Singapore Accreditation Council-accredited firm.
+
+Climate reporting aligns with financial statement timelines. Companies, directors, and officers must comply with legal requirements, including record-keeping, circulating disclosures and auditor reports, filing with regulators, revising defective disclosures, and appointing competent auditors.
+
+**About Green Reports**  
+Founded in 2024, Green Reports is a Singapore-based ESG advisory firm providing tailored services to Singaporean companies. Learn more [here].
