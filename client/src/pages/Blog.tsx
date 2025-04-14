@@ -45,8 +45,6 @@ function BlogPostCard({ post }: { post: BlogPost }) {
             <span className="uppercase font-semibold text-primary">{post.category}</span>
             <span>•</span>
             <span>{timeAgo}</span>
-            <span>•</span>
-            <span>By {post.author}</span>
           </div>
           <CardTitle className="text-xl md:text-2xl">
             <Link href={`/blog/${post.slug}`} className="hover:text-primary transition-colors duration-200">
@@ -79,8 +77,6 @@ function BlogPostSkeleton() {
             <Skeleton className="h-4 w-20" />
             <Skeleton className="h-4 w-4" />
             <Skeleton className="h-4 w-24" />
-            <Skeleton className="h-4 w-4" />
-            <Skeleton className="h-4 w-32" />
           </div>
           <Skeleton className="h-7 w-3/4 mt-2" />
         </CardHeader>
