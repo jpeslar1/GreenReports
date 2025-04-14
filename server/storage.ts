@@ -143,7 +143,11 @@ export class MemStorage implements IStorage {
   
   async getAllBlogPosts(): Promise<BlogPost[]> {
     return Array.from(this.blogPosts.values())
-      .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()); // Sort by most recent
+      .sort((a, b) => {
+        const dateA = a.publishedAt instanceof Date ? a.publishedAt : new Date(a.publishedAt);
+        const dateB = b.publishedAt instanceof Date ? b.publishedAt : new Date(b.publishedAt);
+        return dateB.getTime() - dateA.getTime();
+      }); // Sort by most recent
   }
   
   async updateBlogPost(id: number, post: Partial<InsertBlogPost>): Promise<BlogPost | undefined> {
