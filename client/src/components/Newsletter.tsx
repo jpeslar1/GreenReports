@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { newsletterFormSchema } from "@/lib/ContactFormSchema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,32 +29,39 @@ export default function Newsletter() {
     },
   });
   
-  const newsletterMutation = useMutation({
-    mutationFn: (data: NewsletterFormValues) => {
-      return apiRequest("POST", "/api/newsletter", data);
-    },
-    onSuccess: () => {
+  const onSubmit = async (data: NewsletterFormValues) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Using formsubmit.co for static form submission
+      const formData = new FormData();
+      formData.append('email', data.email);
+      formData.append('_subject', 'Newsletter Subscription');
+      
+      const response = await fetch('https://formsubmit.co/contact@greenreports.co', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (!response.ok) {
+        throw new Error('Newsletter subscription failed');
+      }
+      
       toast({
         title: "Subscription successful!",
         description: "Thank you for subscribing to our newsletter.",
       });
       form.reset();
-      setIsSubmitting(false);
-    },
-    onError: (error) => {
+    } catch (error: unknown) {
       console.error("Error subscribing to newsletter:", error);
       toast({
         title: "Subscription failed",
         description: "Please try again later.",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
-    },
-  });
-
-  const onSubmit = (data: NewsletterFormValues) => {
-    setIsSubmitting(true);
-    newsletterMutation.mutate(data);
+    }
   };
 
   return (

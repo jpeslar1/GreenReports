@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { contactFormSchema } from "@/lib/ContactFormSchema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,32 +37,42 @@ function ContactForm() {
     },
   });
   
-  const contactMutation = useMutation({
-    mutationFn: (data: FormValues) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Using formsubmit.co for static form submission
+      const formData = new FormData();
+      formData.append('name', data.fullName);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('subject', data.subject);
+      formData.append('message', data.message);
+      
+      const response = await fetch('https://formsubmit.co/contact@greenreports.co', {
+        method: 'POST',
+        body: formData
+      });
+      
+      if (!response.ok) {
+        throw new Error('Form submission failed');
+      }
+      
       toast({
         title: "Form submitted successfully!",
         description: "We'll get back to you as soon as possible.",
       });
       form.reset();
-      setIsSubmitting(false);
-    },
-    onError: (error) => {
+    } catch (error: unknown) {
       console.error("Error submitting form:", error);
       toast({
         title: "Error submitting form",
         description: "Please try again later.",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
-    },
-  });
-
-  const onSubmit = (data: FormValues) => {
-    setIsSubmitting(true);
-    contactMutation.mutate(data);
+    }
   };
 
   return (
