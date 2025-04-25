@@ -117,15 +117,13 @@ export default function BlogPost() {
                   </div>
                 </div>
                 
-                {post.imageUrl && (
-                  <div className="mb-8">
-                    <img 
-                      src={post.imageUrl} 
-                      alt={post.title} 
-                      className="w-full h-auto rounded-lg shadow-md"
-                    />
-                  </div>
-                )}
+                <div className="mb-8">
+                  <img 
+                    src={post.imageUrl} 
+                    alt={post.title} 
+                    className="w-full h-auto rounded-lg shadow-md"
+                  />
+                </div>
                 
                 <div className="prose prose-primary max-w-none">
                   <p className="text-lg font-medium text-gray-700 mb-6">{post.summary}</p>

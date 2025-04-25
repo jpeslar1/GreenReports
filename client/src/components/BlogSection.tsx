@@ -26,15 +26,13 @@ function BlogPostCard({ post }: { post: BlogPost }) {
   
   return (
     <Card className="h-full flex flex-col overflow-hidden transition-shadow duration-200 hover:shadow-md">
-      {post.imageUrl && (
-        <div className="h-48 overflow-hidden">
-          <img 
-            src={post.imageUrl} 
-            alt={post.title} 
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-          />
-        </div>
-      )}
+      <div className="h-48 overflow-hidden">
+        <img 
+          src={post.imageUrl} 
+          alt={post.title} 
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+      </div>
       <CardHeader className="flex-none">
         <div className="text-sm text-gray-500 mb-1">
           <span className="uppercase font-semibold text-primary">{post.category}</span> • {timeAgo}

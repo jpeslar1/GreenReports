@@ -30,15 +30,13 @@ function BlogPostCard({ post }: { post: BlogPost }) {
   
   return (
     <Card className="flex flex-col md:flex-row overflow-hidden hover:shadow-md transition-shadow duration-200">
-      {post.imageUrl && (
-        <div className="w-full md:w-1/3 h-48 md:h-auto">
-          <img 
-            src={post.imageUrl} 
-            alt={post.title} 
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-          />
-        </div>
-      )}
+      <div className="w-full md:w-1/3 h-48 md:h-auto">
+        <img 
+          src={post.imageUrl} 
+          alt={post.title} 
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+        />
+      </div>
       <div className={`flex flex-col w-full ${post.imageUrl ? 'md:w-2/3' : ''}`}>
         <CardHeader>
           <div className="flex flex-wrap items-center gap-2 text-sm text-gray-500 mb-1">
