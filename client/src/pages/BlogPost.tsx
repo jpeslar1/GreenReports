@@ -7,6 +7,7 @@ import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { blogPosts } from "../data/staticData";
+import { Helmet } from "react-helmet";
 
 interface BlogPost {
   id: number;
@@ -78,6 +79,61 @@ export default function BlogPost() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      {post && (
+        <Helmet>
+          <title>{post.title} | Green Reports</title>
+          <meta name="description" content={post.summary} />
+          <meta name="keywords" content={`ESG, sustainability, Singapore, ${post.category}, climate reporting, environmental consulting`} />
+          
+          {/* Open Graph / Facebook */}
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={post.title} />
+          <meta property="og:description" content={post.summary} />
+          <meta property="og:image" content={typeof post.imageUrl === 'string' ? post.imageUrl : '/og-image.jpg'} />
+          <meta property="article:published_time" content={post.publishedAt} />
+          <meta property="article:modified_time" content={post.updatedAt} />
+          <meta property="article:section" content={post.category} />
+          
+          {/* Twitter */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:title" content={post.title} />
+          <meta property="twitter:description" content={post.summary} />
+          <meta property="twitter:image" content={typeof post.imageUrl === 'string' ? post.imageUrl : '/og-image.jpg'} />
+          
+          {/* Canonical URL */}
+          <link rel="canonical" href={`https://greenreports.co/blog/${post.slug}`} />
+          
+          {/* JSON-LD Structured Data */}
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "headline": post.title,
+              "image": typeof post.imageUrl === 'string' ? post.imageUrl : '/og-image.jpg',
+              "author": {
+                "@type": "Organization",
+                "name": "Green Reports"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Green Reports",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://greenreports.co/favicon.ico"
+                }
+              },
+              "datePublished": post.publishedAt,
+              "dateModified": post.updatedAt,
+              "description": post.summary,
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": `https://greenreports.co/blog/${post.slug}`
+              }
+            })}
+          </script>
+        </Helmet>
+      )}
+      
       <Header />
       <Navigation />
       

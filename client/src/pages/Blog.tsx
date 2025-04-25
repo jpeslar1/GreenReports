@@ -10,6 +10,7 @@ import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { blogPosts } from "../data/staticData";
+import { Helmet } from "react-helmet";
 
 interface BlogPost {
   id: number;
