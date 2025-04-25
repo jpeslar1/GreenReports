@@ -1,5 +1,4 @@
 import { useRoute, Link } from "wouter";
-import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { FaCalendarAlt, FaUser, FaTag, FaArrowLeft } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -7,6 +6,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { blogPosts } from "../data/staticData";
 
 interface BlogPost {
   id: number;
@@ -46,24 +46,10 @@ export default function BlogPost() {
   const [, params] = useRoute<{ slug: string }>("/blog/:slug");
   const slug = params?.slug;
 
-  const { data: post, isLoading, error } = useQuery({
-    queryKey: ['/api/blog', slug],
-    queryFn: async () => {
-      if (!slug) throw new Error('No slug provided');
-      
-      const response = await fetch(`/api/blog/${slug}`);
-      if (!response.ok) {
-        if (response.status === 404) {
-          throw new Error('Blog post not found');
-        }
-        throw new Error('Failed to fetch blog post');
-      }
-      
-      const data = await response.json();
-      return data.data as BlogPost;
-    },
-    enabled: !!slug
-  });
+  // Use static data instead of API call
+  const isLoading = false;
+  const error = null;
+  const post = slug ? blogPosts.find((post) => post.slug === slug) : null;
 
   if (!slug) {
     return (

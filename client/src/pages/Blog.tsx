@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { useQuery } from "@tanstack/react-query";
 import { formatDistanceToNow } from "date-fns";
 import { FaSearch, FaTag } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
@@ -10,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import Header from "@/components/Header";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import { blogPosts } from "../data/staticData";
 
 interface BlogPost {
   id: number;
@@ -97,39 +97,28 @@ export default function Blog() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   
-  const { data: posts, isLoading, error } = useQuery({
-    queryKey: ['/api/blog'],
-    queryFn: async () => {
-      const response = await fetch('/api/blog');
-      if (!response.ok) {
-        throw new Error('Failed to fetch blog posts');
-      }
-      const data = await response.json();
-      return data.data as BlogPost[];
-    }
-  });
+  // Use static data instead of fetching from API
+  const posts = blogPosts;
+  const isLoading = false;
+  const error = null;
   
   // Extract unique categories from posts
-  const categories = posts 
-    ? Array.from(new Set(posts.map(post => post.category)))
-    : [];
+  const categories = Array.from(new Set(posts.map((post: BlogPost) => post.category)));
   
   // Filter posts based on search query and selected category
-  const filteredPosts = posts
-    ? posts.filter(post => {
-        const matchesSearch = searchQuery 
-          ? post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-            post.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            post.content.toLowerCase().includes(searchQuery.toLowerCase())
-          : true;
-        
-        const matchesCategory = selectedCategory 
-          ? post.category === selectedCategory 
-          : true;
-        
-        return matchesSearch && matchesCategory;
-      })
-    : [];
+  const filteredPosts = posts.filter((post: BlogPost) => {
+    const matchesSearch = searchQuery 
+      ? post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        post.summary.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        post.content.toLowerCase().includes(searchQuery.toLowerCase())
+      : true;
+    
+    const matchesCategory = selectedCategory 
+      ? post.category === selectedCategory 
+      : true;
+    
+    return matchesSearch && matchesCategory;
+  });
   
   return (
     <div className="flex flex-col min-h-screen">
