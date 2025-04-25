@@ -1,13 +1,16 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install",
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "dist/index.js"
+      "dest": "/index.js"
     },
     {
       "src": "/blog-images/(.*)",
-      "dest": "dist/public/blog-images/$1"
+      "dest": "/blog-images/$1"
     },
     {
       "src": "/(assets|images|fonts)/.*",
@@ -17,14 +20,14 @@
     },
     {
       "src": "/(.*)\\.(.+)",
-      "dest": "dist/public/$1.$2"
+      "dest": "/$1.$2"
     },
     {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "dist/public/index.html"
+      "dest": "/index.html"
     }
   ]
 }

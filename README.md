@@ -108,9 +108,19 @@ The following environment variables can be configured for deployment:
 The project includes a `vercel.json` configuration file for easy deployment to Vercel:
 
 1. Connect your GitHub repository to Vercel
-2. Vercel will automatically detect the configuration
+2. Vercel will automatically detect the configuration with these settings:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist/public`
+   - **Install Command**: `npm install`
 3. Set the necessary environment variables in the Vercel dashboard
 4. Deploy the project
+
+If you need to manually configure the project in Vercel:
+- Framework Preset: Other
+- Build Command: npm run build
+- Output Directory: dist/public
+- Install Command: npm install
+- Root Directory: (leave empty)
 
 The Vercel configuration handles:
 - Building both frontend and backend
