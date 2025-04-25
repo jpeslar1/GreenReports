@@ -35,6 +35,12 @@ export default function ServicesSection() {
   
   const services = [
     {
+      icon: <FaRecycle />,
+      title: "ESG Reporting",
+      description: "We simplify ESG reporting by transforming complex sustainability data into investor-grade disclosures aligned with global frameworks like GRI, TCFD, and IFRS S1/S2. Our end-to-end solutions ensure compliance while uncovering strategic insights—helping you communicate performance transparently, meet stakeholder expectations, and turn reporting into a competitive advantage. From carbon footprinting to board-ready ESG narratives, we bridge the gap between regulatory requirements and meaningful business value.",
+      iconBgClass: primaryGreen
+    },
+    {
       icon: <FaHandshake />,
       title: "Stakeholder Engagement",
       description: "Good stakeholder engagement demonstrates a commitment to building meaningful relationships with diverse stakeholders, fostering open communication, and creating shared value. Our services help you fostering meaningful connections that contribute to the long-term success and sustainability of both the organization and its stakeholders.",
@@ -52,12 +58,6 @@ export default function ServicesSection() {
       description: "ESG data collection and calculation model services involve systematically gathering and analyzing information related to a company's ESG key performance indicators and financial impact from climate risk. These services are crucial for organizations aiming to measure, report, and improve their sustainability practices. One example is complete GHG Scope 1-3 model building service.",
       iconBgClass: primaryGreen
     },
-    {
-      icon: <FaRecycle />,
-      title: "Sustainable Supply Chain and Green Procurement",
-      description: "Establishing a responsible supply chain and implementing green procurement are services focused on promoting ethical and environmentally sustainable practices within an organization's sourcing and supply chain operations.",
-      iconBgClass: primaryGreen
-    }
   ];
 
   return (

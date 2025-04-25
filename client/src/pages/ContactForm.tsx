@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "@/hooks/use-toast";
-import { useMutation } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
 import { contactFormSchema } from "@/lib/ContactFormSchema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,32 +37,47 @@ export default function ContactForm() {
     },
   });
   
-  const contactMutation = useMutation({
-    mutationFn: (data: FormValues) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Form submitted successfully!",
-        description: "We'll get back to you as soon as possible.",
-      });
-      form.reset();
-      setIsSubmitting(false);
-    },
-    onError: (error) => {
-      console.error("Error submitting form:", error);
-      toast({
-        title: "Error submitting form",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-      setIsSubmitting(false);
-    },
-  });
-
   const onSubmit = (data: FormValues) => {
     setIsSubmitting(true);
-    contactMutation.mutate(data);
+    
+    // Using formsubmit.co service
+    const formData = new FormData();
+    formData.append("name", data.fullName);
+    formData.append("email", data.email);
+    formData.append("phone", data.phone);
+    formData.append("subject", data.subject);
+    formData.append("message", data.message);
+    
+    fetch("https://formsubmit.co/contact@greenreports.co", {
+      method: "POST",
+      body: formData,
+      headers: {
+        "Accept": "application/json",
+      },
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(() => {
+        toast({
+          title: "Form submitted successfully!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        form.reset();
+        setIsSubmitting(false);
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+        toast({
+          title: "Error submitting form",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+      });
   };
 
   return (

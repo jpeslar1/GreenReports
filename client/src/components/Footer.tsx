@@ -21,7 +21,7 @@ export default function Footer() {
               <span className="text-white font-montserrat font-bold text-xl">greenreports</span>
             </Link>
             <p className="text-gray-400 mb-4">
-              Helping companies build a more sustainable future through digital reporting solutions.
+              Helping Singaporean companies build a more sustainable future through digital reporting solutions.
             </p>
           </div>
           
@@ -29,16 +29,15 @@ export default function Footer() {
             <h4 className="text-lg font-bold mb-4">Contact Info</h4>
             <ul className="space-y-2">
               <li className="flex items-center">
-                <FaMapMarkerAlt className="mr-3 text-[#99CC33]" />
-                <span className="text-gray-400">123 Orchard Road, #10-01, Singapore 238865</span>
-              </li>
-              <li className="flex items-center">
-                <FaPhoneAlt className="mr-3 text-[#99CC33]" />
-                <span className="text-gray-400">+65 1234 5678</span>
-              </li>
-              <li className="flex items-center">
                 <FaEnvelope className="mr-3 text-[#99CC33]" />
-                <span className="text-gray-400">info@greenreports.sg</span>
+                <a 
+                  href="mailto:contact@greenreports.co" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-400 hover:text-white transition-colors duration-200"
+                >
+                  contact@greenreports.co
+                </a>
               </li>
             </ul>
           </div>
@@ -47,7 +46,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              © Copyright {currentYear}, A division of Interactive Networks. All Rights Reserved.
+              © Copyright {currentYear}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Help</a>

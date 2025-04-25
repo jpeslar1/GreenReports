@@ -23,7 +23,7 @@ export default function BusinessesSection() {
     "Scenario Analysis",
     "Greenhouse Gas Emissions Calculation – Scope 1, 2, 3 emissions based on GHG protocol",
     "Sustainability Target Settings under SBTi",
-    "GRI Reporting"
+    "GRI Reporting TCFD, IFRS S1&S2"
   ];
 
   const mediumBusinessServices = [
