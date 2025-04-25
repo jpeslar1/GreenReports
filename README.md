@@ -101,6 +101,23 @@ The following environment variables can be configured for deployment:
 - `SESSION_SECRET`: Secret key for session management (required if authentication is enabled)
 - `SENDGRID_API_KEY`: API key for SendGrid email service (optional, for email functionality)
 
+## Deployment Options
+
+### Deploying to Vercel
+
+The project includes a `vercel.json` configuration file for easy deployment to Vercel:
+
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically detect the configuration
+3. Set the necessary environment variables in the Vercel dashboard
+4. Deploy the project
+
+The Vercel configuration handles:
+- Building both frontend and backend
+- Routing API requests to the backend
+- Serving static assets with proper caching
+- Supporting client-side routing for the React app
+
 ## External Integrations
 
 - **FormSubmit.co**: Contact form submissions are sent to contact@greenreports.co using FormSubmit.co
