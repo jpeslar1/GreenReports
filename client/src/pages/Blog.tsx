@@ -121,6 +121,58 @@ export default function Blog() {
   
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <title>Sustainability Blog | Green Reports</title>
+        <meta name="description" content="Explore our latest insights, news, and updates on sustainability reporting and ESG practices for companies in Singapore." />
+        <meta name="keywords" content="sustainability blog, ESG insights, Singapore sustainability, climate reporting, environmental consulting, ESG news" />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Sustainability Blog | Green Reports" />
+        <meta property="og:description" content="Explore our latest insights, news, and updates on sustainability reporting and ESG practices for companies in Singapore." />
+        <meta property="og:image" content="/og-image.jpg" />
+        
+        {/* Twitter */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:title" content="Sustainability Blog | Green Reports" />
+        <meta property="twitter:description" content="Explore our latest insights, news, and updates on sustainability reporting and ESG practices for companies in Singapore." />
+        <meta property="twitter:image" content="/og-image.jpg" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://greenreports.co/blog" />
+        
+        {/* JSON-LD Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Green Reports Sustainability Blog",
+            "description": "Explore our latest insights, news, and updates on sustainability reporting and ESG practices for companies in Singapore.",
+            "url": "https://greenreports.co/blog",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Green Reports",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://greenreports.co/favicon.ico"
+              }
+            },
+            "blogPost": posts.map(post => ({
+              "@type": "BlogPosting",
+              "headline": post.title,
+              "description": post.summary,
+              "datePublished": post.publishedAt,
+              "dateModified": post.updatedAt,
+              "author": {
+                "@type": "Organization",
+                "name": "Green Reports"
+              },
+              "url": `https://greenreports.co/blog/${post.slug}`
+            }))
+          })}
+        </script>
+      </Helmet>
+
       <Header />
       <Navigation />
       
