@@ -80,18 +80,13 @@ function BlogPostSkeleton() {
   );
 }
 
+import { blogPosts } from '../data/staticData';
+
 export default function BlogSection() {
-  const { data: posts, isLoading, error } = useQuery({
-    queryKey: ['/api/blog'],
-    queryFn: async () => {
-      const response = await fetch('/api/blog');
-      if (!response.ok) {
-        throw new Error('Failed to fetch blog posts');
-      }
-      const data = await response.json();
-      return data.data as BlogPost[];
-    }
-  });
+  // Use static data instead of API query
+  const posts = blogPosts;
+  const isLoading = false;
+  const error = null;
   
   // Display only the latest 3 posts
   const latestPosts = posts ? posts.slice(0, 3) : [];
