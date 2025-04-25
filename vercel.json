@@ -1,22 +1,23 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "installCommand": "npm install",
   "builds": [
     {
-      "src": "package.json",
+      "src": "dist/index.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "dist/public/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/index.js"
+      "dest": "dist/index.js"
     },
     {
       "src": "/blog-images/(.*)",
-      "dest": "/blog-images/$1"
+      "dest": "dist/public/blog-images/$1"
     },
     {
       "src": "/(assets|images|fonts)/.*",
@@ -26,14 +27,14 @@
     },
     {
       "src": "/(.*)\\.(.+)",
-      "dest": "/$1.$2"
+      "dest": "dist/public/$1.$2"
     },
     {
       "handle": "filesystem"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "dist/public/index.html"
     }
   ]
 }
