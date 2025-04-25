@@ -85,6 +85,22 @@ For production deployment:
 2. The build process combines the frontend and backend into a single distributable
 3. Static assets are optimized and served efficiently
 
+### Deployment Configuration
+
+- **Base Directory**: `/` (root of the repository)
+- **Package Directory**: `/` (root of the repository)
+- **Build Command**: `npm run build`
+- **Publish Directory**: `dist`
+
+### Environment Variables
+
+The following environment variables can be configured for deployment:
+
+- `NODE_ENV`: Set to `production` for production environments
+- `PORT`: The port on which the server will run (defaults to 5000)
+- `SESSION_SECRET`: Secret key for session management (required if authentication is enabled)
+- `SENDGRID_API_KEY`: API key for SendGrid email service (optional, for email functionality)
+
 ## External Integrations
 
 - **FormSubmit.co**: Contact form submissions are sent to contact@greenreports.co using FormSubmit.co
